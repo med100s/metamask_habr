@@ -93,11 +93,11 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
           </li>
         </ul>
       </Box>
-      <RecoveryPhraseChips
+      {/* <RecoveryPhraseChips
         secretRecoveryPhrase={secretRecoveryPhrase.split(' ')}
         phraseRevealed={phraseRevealed && !hiddenPhrase}
         hiddenPhrase={hiddenPhrase}
-      />
+      /> */}
       <div className="recovery-phrase__footer">
         {phraseRevealed ? (
           <div className="recovery-phrase__footer__copy-and-hide">
