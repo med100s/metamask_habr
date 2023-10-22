@@ -162,14 +162,14 @@ export default function SecureYourWallet() {
         >
           {t('seedPhraseIntroNotRecommendedButtonCopy')}
         </Button>
-        <Button
+        {/* <Button
           data-testid="secure-wallet-recommended"
           size={BUTTON_SIZES.LG}
           block
           onClick={handleClickRecommended}
         >
           {t('seedPhraseIntroRecommendedButtonCopy')}
-        </Button>
+        </Button> */}
       </Box>
       <Box className="secure-your-wallet__desc">
         <Text as="h3" variant={TextVariant.headingSm}>
