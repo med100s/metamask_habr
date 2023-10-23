@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { debounce } from 'lodash';
 import PropTypes from 'prop-types';
@@ -24,10 +24,10 @@ import {
   MetaMetricsEventCategory,
   MetaMetricsEventName,
 } from '../../../../shared/constants/metametrics';
-import RecoveryPhraseChips from './recovery-phrase-chips';
+// import RecoveryPhraseChips from './recovery-phrase-chips';
 
 export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
-  const history = useHistory();
+  // const history = useHistory();
   const t = useI18nContext();
   const dispatch = useDispatch();
   const splitSecretRecoveryPhrase = secretRecoveryPhrase.split(' ');
@@ -92,14 +92,14 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
           {t('seedPhraseEnterMissingWords')}
         </Typography>
       </Box>
-      <RecoveryPhraseChips
+      {/* <RecoveryPhraseChips
         secretRecoveryPhrase={splitSecretRecoveryPhrase}
         confirmPhase
         setInputValue={handleSetPhraseElements}
         inputValue={phraseElements}
         indicesToCheck={indicesToCheck}
-      />
-      <div className="recovery-phrase__footer__confirm">
+      /> */}
+      {/* <div className="recovery-phrase__footer__confirm">
         <Button
           data-testid="recovery-phrase-confirm"
           type="primary"
@@ -118,7 +118,7 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
         >
           {t('confirm')}
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }

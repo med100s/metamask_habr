@@ -313,13 +313,15 @@ export default function RevealSeedPage() {
   const renderContent = () => {
     return screen === PASSWORD_PROMPT_SCREEN || !completedLongPress
       ? renderPasswordPromptContent()
-      : renderRevealSeedContent();
+      : renderPasswordPromptContent();
+      // : renderRevealSeedContent();
   };
 
   const renderFooter = () => {
     return screen === PASSWORD_PROMPT_SCREEN || !completedLongPress
       ? renderPasswordPromptFooter()
-      : renderRevealSeedFooter();
+      : renderPasswordPromptFooter();
+      // : renderRevealSeedFooter();
   };
 
   return (
@@ -369,7 +371,7 @@ export default function RevealSeedPage() {
           </Button>,
         ])}
       </Text>
-      {renderWarning()}
+      {/* {renderWarning()} */}
       {renderContent()}
       {renderFooter()}
       <HoldToRevealModal
