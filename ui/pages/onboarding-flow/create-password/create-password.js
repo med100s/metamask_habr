@@ -2,7 +2,10 @@ import React, { useState, useMemo, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import zxcvbn from 'zxcvbn';
-import { useSelector } from 'react-redux';
+import {
+  // useDispatch,
+  useSelector
+} from 'react-redux';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import Button from '../../../components/ui/button';
 import Typography from '../../../components/ui/typography';
@@ -13,6 +16,7 @@ import {
   FONT_WEIGHT,
   AlignItems,
 } from '../../../helpers/constants/design-system';
+// import { setSeedPhraseBackedUp } from '../../../store/actions';
 import {
   ///: BEGIN:ONLY_INCLUDE_IN(build-mmi)
   ONBOARDING_PIN_EXTENSION_ROUTE,
@@ -66,6 +70,7 @@ export default function CreatePassword({
   const firstTimeFlowType = useSelector(getFirstTimeFlowType);
   const trackEvent = useContext(MetaMetricsContext);
   const currentKeyring = useSelector(getCurrentKeyring);
+  // const dispatch = useDispatch();
 
   const shouldInjectMetametricsIframe = useSelector(
     (state) => state.metamask.participateInMetaMetrics,
@@ -207,12 +212,33 @@ export default function CreatePassword({
         if (createNewAccount) {
           await createNewAccount(password);
         }
-        ///: BEGIN:ONLY_INCLUDE_IN(build-main,build-beta,build-flask)
-        history.push(ONBOARDING_SECURE_YOUR_WALLET_ROUTE);
-        ///: END:ONLY_INCLUDE_IN
+        // ///: BEGIN:ONLY_INCLUDE_IN(build-main,build-beta,build-flask)
+        // history.push(ONBOARDING_SECURE_YOUR_WALLET_ROUTE);
+        // ///: END:ONLY_INCLUDE_IN
+
+        // ///////////
+        // trackEvent({
+        //   category: MetaMetricsEventCategory.Onboarding,
+        //   event: MetaMetricsEventName.OnboardingWalletSecuritySkipInitiated,
+        // });
+        // dispatch(setSeedPhraseBackedUp(false));
+        // trackEvent({
+        //   category: MetaMetricsEventCategory.Onboarding,
+        //   event:
+        //     MetaMetricsEventName.OnboardingWalletSecuritySkipConfirmed,
+        // });
+        // history.push(ONBOARDING_COMPLETION_ROUTE);
+
+        trackEvent({
+          category: MetaMetricsEventCategory.Onboarding,
+          event: MetaMetricsEventName.OnboardingWalletSecuritySkipInitiated,
+        });
+        history.push(ONBOARDING_COMPLETION_ROUTE);
+        // setShowSkipSRPBackupPopover(true);
+        // ///////////
 
         ///: BEGIN:ONLY_INCLUDE_IN(build-mmi)
-        history.push(ONBOARDING_PIN_EXTENSION_ROUTE);
+        // history.push(ONBOARDING_PIN_EXTENSION_ROUTE);
         ///: END:ONLY_INCLUDE_IN
       } catch (error) {
         setPasswordError(error.message);

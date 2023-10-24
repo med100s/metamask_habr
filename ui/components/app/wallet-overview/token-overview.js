@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -167,7 +168,7 @@ const TokenOverview = ({ className, token }) => {
           {
             ///: BEGIN:ONLY_INCLUDE_IN(build-mmi)
             <>
-              <IconButton
+              {/* <IconButton
                 className="eth-overview__button"
                 Icon={
                   <Icon
@@ -183,7 +184,7 @@ const TokenOverview = ({ className, token }) => {
                     url: `${mmiPortfolioUrl}/stake`,
                   });
                 }}
-              />
+              /> */}
               {mmiPortfolioEnabled && (
                 <IconButton
                   className="eth-overview__button"
@@ -207,7 +208,7 @@ const TokenOverview = ({ className, token }) => {
             ///: END:ONLY_INCLUDE_IN
           }
 
-          <IconButton
+          {/* <IconButton
             className="token-overview__button"
             onClick={async () => {
               trackEvent({
@@ -243,7 +244,7 @@ const TokenOverview = ({ className, token }) => {
             label={t('send')}
             data-testid="eth-overview-send"
             disabled={token.isERC721}
-          />
+          /> */}
           {isSwapsChain && (
             <IconButton
               className="token-overview__button"
