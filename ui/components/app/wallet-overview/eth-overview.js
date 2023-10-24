@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -104,7 +105,7 @@ const EthOverview = ({ className, showAddress }) => {
   const renderInstitutionalButtons = () => {
     return (
       <>
-        <IconButton
+        {/* <IconButton
           className="eth-overview__button"
           Icon={<Icon name={IconName.Stake} color={IconColor.primaryInverse} />}
           label={t('stake')}
@@ -114,7 +115,7 @@ const EthOverview = ({ className, showAddress }) => {
               url: `${mmiPortfolioUrl}/stake`,
             });
           }}
-        />
+        /> */}
         {mmiPortfolioEnabled && (
           <IconButton
             className="eth-overview__button"
@@ -226,7 +227,7 @@ const EthOverview = ({ className, showAddress }) => {
             ///: END:ONLY_INCLUDE_IN
           }
 
-          <IconButton
+          {/* <IconButton
             className="eth-overview__button"
             data-testid="eth-overview-send"
             Icon={
@@ -253,7 +254,7 @@ const EthOverview = ({ className, showAddress }) => {
                 history.push(SEND_ROUTE);
               });
             }}
-          />
+          /> */}
           <IconButton
             className="eth-overview__button"
             disabled={!isSwapsChain}

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -181,7 +182,7 @@ export const SelectActionModal = ({ onClose }) => {
               onClose();
             }}
           />
-          <SelectActionModalItem
+          {/* <SelectActionModalItem
             actionIcon={IconName.Arrow2UpRight}
             primaryText={t('send')}
             secondaryText={t('sendDescription')}
@@ -202,7 +203,7 @@ export const SelectActionModal = ({ onClose }) => {
               history.push(SEND_ROUTE);
               onClose();
             }}
-          />
+          /> */}
           {
             ///: BEGIN:ONLY_INCLUDE_IN(build-main,build-beta,build-flask)
             <SelectActionModalItem
